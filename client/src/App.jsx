@@ -1,35 +1,75 @@
 
-import Button from "./components/ui/Button";
+import {
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
+
+import { useAuth } from "./context/AuthContext";
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import Projects from "./pages/Projects";
+import Goals from "./pages/Goals";
+
+// Protect pages that require login
+function ProtectedRoute() {
+  const { isAuthenticated, isCheckingAuth } = useAuth();
+
+  if (isCheckingAuth) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-page text-navy">
+        Loading CareerForge AI...
+      </div>
+    );
+  }
+
+  return isAuthenticated ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" replace />
+  );
+}
 
 function App() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-page p-6">
-      <div className="w-full max-w-md space-y-5 rounded-card border border-border-main bg-white p-8 shadow-sm">
-        <h1 className="text-2xl font-bold text-navy">
-          CareerForge AI
-        </h1>
+    <Routes>
+      {/* Default route */}
+      <Route
+        path="/"
+        element={<Navigate to="/dashboard" replace />}
+      />
 
-        <p className="text-text-muted">
-          Our reusable button component
-        </p>
+      {/* Public routes */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
 
-        <div className="flex flex-col gap-3">
-          <Button>Sign In</Button>
+      {/* Protected routes */}
+      <Route element={<ProtectedRoute />}>
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
+        />
 
-          <Button variant="secondary">
-            View Progress
-          </Button>
+        <Route
+          path="/projects"
+          element={<Projects />}
+        />
 
-          <Button variant="outline">
-            Cancel
-          </Button>
+        <Route
+          path="/goals"
+          element={<Goals />}
+        />
+      </Route>
 
-          <Button isLoading>
-            Loading
-          </Button>
-        </div>
-      </div>
-    </main>
+      {/* Unknown routes */}
+      <Route
+        path="*"
+        element={<Navigate to="/" replace />}
+      />
+    </Routes>
   );
 }
 
