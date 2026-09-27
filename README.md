@@ -1,358 +1,248 @@
-
 <div align="center">
 
-# 🚀 CareerForge AI
+# CareerForge AI
 
-### Your AI-Powered Career Development Companion
+### A full-stack career preparation workspace for students
 
-**Learn. Build. Track. Grow. Get Career-Ready.**
+**Plan your goals. Build projects. Track progress. Prepare for what's next.**
 
-An intelligent, all-in-one career development and placement preparation platform designed to help students transform their skills into career opportunities.
+![Status](https://img.shields.io/badge/Status-Active%20Development-F59E0B?style=for-the-badge)
+![Stack](https://img.shields.io/badge/Stack-MERN-61DAFB?style=for-the-badge)
+![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Tailwind-38BDF8?style=for-the-badge)
 
-![Project Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=for-the-badge)
-![MERN Stack](https://img.shields.io/badge/Stack-MERN-61DAFB?style=for-the-badge)
-![AI Powered](https://img.shields.io/badge/AI-Gemini-8E75B2?style=for-the-badge)
-
----
-
-**[About](#-about-the-project) • [Features](#-what-were-building) • [Tech Stack](#-technology-stack) • [Roadmap](#-development-roadmap)**
+[Overview](#overview) · [Implemented Features](#implemented-features) · [Tech Stack](#tech-stack) · [Local Setup](#local-setup) · [Roadmap](#roadmap)
 
 </div>
 
-## 🌟 About the Project
+## Overview
 
-**CareerForge AI** is a full-stack, AI-powered career development and placement preparation platform built to help college students take control of their professional journey.
+CareerForge AI is an in-development MERN-stack application designed to bring students' career preparation into one place. It currently provides authenticated accounts, project management, personalized goals, and a dashboard that reflects saved project and goal data.
 
-Preparing for internships and placements involves much more than learning to code. Students need to build projects, solve coding problems, develop professional resumes, acquire new skills, earn certifications, and prepare for technical interviews.
+Coding practice, resume analysis, mock interviews, and AI-assisted career guidance are planned modules. CareerForge AI is intended to complement platforms such as LeetCode and GitHub, not replace them.
 
-However, these activities are often spread across different platforms, making it difficult to organize and monitor progress.
+## Current Status
 
-**CareerForge AI brings these activities together into one personalized platform.**
+**Active development — core student experience implemented locally.**
 
-Students will be able to manage their career profiles, track their technical progress, build professional resumes, receive AI-powered feedback, and follow personalized learning roadmaps.
+| Module | Status | Current scope |
+|---|---|---|
+| Student authentication | Implemented | Registration, login, JWT-protected application routes |
+| Student dashboard | Implemented | Personalized overview, project statistics, goals, and deadline widgets |
+| Project management | Implemented | Create, view, edit, delete, and categorize projects by status |
+| Personalized goals | Implemented | Set individual targets, categories, deadlines, and statuses |
+| Project goal progress | Implemented | Displays progress based on completed projects |
+| Goal schedule | Implemented | Upcoming deadlines and weekly calendar based on active goals |
+| DSA practice | Planned | LeetCode question links and saved solve tracking |
+| Resume analysis and interviews | Planned | Resume feedback and mock interview modules |
+| AI career assistant | Planned | AI-assisted guidance and learning roadmaps |
 
-Our vision is to create a digital career companion that helps students understand their progress, identify areas for improvement, and prepare for future opportunities.
+The dashboard deliberately uses empty states for features that do not yet have real activity data. The current application is a development project; a publicly deployed version is not yet available.
 
----
+## Implemented Features
 
-## 💡 The Problem We're Solving
+### Authentication and protected routes
 
-Students currently rely on multiple platforms throughout their career preparation journey.
+- Student registration and login.
+- Password hashing using bcryptjs and JWT-based authentication.
+- Protected frontend routes and authenticated backend endpoints.
+- User-specific project and goal records in MongoDB.
 
-| Platform | Primary Purpose |
+### Personalized dashboard
+
+- Project totals and completed/in-progress project statistics derived from saved records.
+- Goal summaries and progress indicators.
+- Upcoming goal deadlines and an interactive weekly calendar.
+- Dedicated placeholders for DSA practice, resume analysis, interviews, and coding activity until those modules are connected.
+
+### Project management
+
+- Add, view, edit, and delete portfolio projects.
+- Organize projects as **Planned**, **In Progress**, or **Completed**.
+- Keep each student's project records separate.
+- Reflect completed projects in the dashboard and project-related goals.
+
+### Personalized goals and deadlines
+
+- Create goals across **DSA**, **Projects**, **Resume**, **Interviews**, and **Custom** categories.
+- Choose a personal target, optional deadline, and status (**Active**, **Paused**, or **Completed**).
+- Record manual progress for custom goals.
+- Show project-goal progress using completed-project records.
+- Display active goals with deadlines in Upcoming Tasks and the weekly calendar. Paused and completed goals are excluded from the upcoming schedule.
+
+**Tracking limitation:** DSA, resume, and interview activity are not automatically tracked yet. LeetCode synchronization has not been implemented.
+
+## Tech Stack
+
+| Layer | Technology |
 |---|---|
-| LeetCode | Coding practice |
-| GitHub | Project repositories |
-| LinkedIn | Professional networking |
-| Resume builders | Resume creation |
-| Coursera | Learning and certifications |
-| AI assistants | Learning and career guidance |
-
-Although these platforms serve different purposes, managing career preparation across them can become overwhelming.
-
-Students often struggle with:
-
-- Tracking their overall career preparation progress.
-- Maintaining consistency in coding practice.
-- Organizing projects, skills, and certifications.
-- Identifying weaknesses in their resumes.
-- Creating structured learning roadmaps.
-- Preparing systematically for technical interviews.
-
-### Our Solution
-
-A centralized platform that combines career management, progress tracking, resume development, and personalized AI assistance.
-
-Instead of replacing existing platforms, CareerForge AI aims to bring important career preparation activities into one organized experience.
-
----
-
-## ✨ What We're Building
-
-<details open>
-<summary><b>🎓 1. Personalized Student Dashboard</b></summary>
-
-A centralized workspace where students can manage and monitor their career development.
-
-**Planned functionalities:**
-
-- Student registration and secure login.
-- Personalized professional profiles.
-- Education and technical skills management.
-- Career preparation overview.
-- Daily and weekly goals.
-- Progress charts and activity tracking.
-- Project and certification summaries.
-
-</details>
-
-<details open>
-<summary><b>📄 2. AI-Powered Resume Builder & Analyzer</b></summary>
-
-Students will be able to create, manage, and improve their resumes with AI assistance.
-
-**Planned functionalities:**
-
-- Create professional resumes using templates.
-- Upload existing resumes.
-- Generate AI-powered resume feedback.
-- Identify missing or unclear resume sections.
-- Receive suggestions based on job descriptions.
-- Download completed resumes.
-
-AI feedback will provide guidance rather than guarantee ATS performance or hiring outcomes.
-
-</details>
-
-<details open>
-<summary><b>💻 3. DSA & Coding Progress Tracker</b></summary>
-
-A dedicated system for monitoring coding practice and maintaining consistency.
-
-**Planned functionalities:**
-
-- Record solved coding problems.
-- Categorize problems by difficulty.
-- Track coding platforms.
-- Monitor daily and weekly progress.
-- Maintain coding streaks.
-- Set personal practice goals.
-- Visualize progress through interactive charts.
-
-**Future enhancement:** GitHub and LeetCode profile integration, subject to available APIs.
-
-</details>
-
-<details open>
-<summary><b>📁 4. Project & Certification Management</b></summary>
-
-A personal portfolio management system for organizing technical achievements.
-
-**Planned functionalities:**
-
-- Add and manage personal projects.
-- Track project development stages.
-- Attach GitHub repositories and live demonstrations.
-- Maintain project technology stacks.
-- Upload certifications.
-- Organize achievements by skills and categories.
-
-</details>
-
-<details open>
-<summary><b>🤖 5. AI Career Assistant</b></summary>
-
-An intelligent assistant designed to support personalized career preparation.
-
-**Planned functionalities:**
-
-- Generate personalized learning roadmaps.
-- Recommend relevant technical skills.
-- Provide project suggestions.
-- Generate mock interview questions.
-- Offer resume improvement guidance.
-- Suggest learning resources based on career goals.
-
-</details>
-
-<details>
-<summary><b>💼 6. Recruiter Dashboard — Future Phase</b></summary>
-
-A dedicated interface to help recruiters discover students who choose to make their profiles available.
-
-**Planned functionalities:**
-
-- Recruiter registration and profiles.
-- Candidate search and skill-based filtering.
-- Student portfolio viewing.
-- Resume access with student permission.
-- Candidate bookmarking.
-- Student–recruiter communication.
-
-</details>
-
-<details>
-<summary><b>🛡️ 7. Admin Dashboard — Future Phase</b></summary>
-
-An administrative interface for managing the platform.
-
-**Planned functionalities:**
-
-- User and account management.
-- Platform activity monitoring.
-- Reported content management.
-- Application analytics.
-
-</details>
-
----
-
-## 🛠️ Technology Stack
-
-Our proposed technology stack focuses on modern full-stack development, scalable backend architecture, and AI integration.
-
-| Layer | Technologies |
-|---|---|
-| Frontend | React.js, Vite, Tailwind CSS |
+| Frontend | React, Vite, Tailwind CSS, React Router, Lucide React |
 | Backend | Node.js, Express.js |
-| Database | MongoDB, Mongoose |
-| Authentication | JWT, bcrypt |
-| AI Integration | Google Gemini API |
-| API Testing | Postman |
-| Version Control | Git, GitHub |
-| Frontend Hosting | Vercel |
-| Backend Hosting | Render |
-| Database Hosting | MongoDB Atlas |
+| Database | MongoDB Atlas, Mongoose |
+| Authentication | JWT, bcryptjs |
+| Development | Git, GitHub, npm |
+| Planned AI integration | Google Gemini API (subject to implementation) |
+| Potential deployment | Vercel (frontend), Render (backend) |
 
-Additional technologies may be introduced as the project develops.
-
----
-
-## 🏗️ Proposed System Architecture
+## Architecture
 
 ```text
-                     CAREERFORGE AI
-                            |
-                     React Frontend
-                            |
-                      REST API Layer
-                            |
-                     Express Backend
-                            |
-          +-----------------+-----------------+
-          |                 |                 |
-       MongoDB          Gemini API       File Storage
-          |                 |                 |
-    Application Data   AI Assistance    Resume Uploads
+                  CareerForge AI
+                        |
+                React + Vite client
+                        |
+             Protected routes / UI
+                        |
+                  Express REST API
+                        |
+             JWT authentication layer
+                        |
+                Mongoose models
+                        |
+                  MongoDB Atlas
+                 /            \
+             Projects        Goals
 ```
 
-The application will follow a modular architecture, separating the user interface, business logic, database operations, and AI services.
+The React client requests authenticated, user-specific data from the Express API. MongoDB stores project and goal records. Dashboard statistics and calendar entries are derived from that saved data rather than hard-coded activity counts.
 
----
+The AI service, resume file storage, and external coding-platform synchronization shown in the original concept are **not part of the current architecture**.
 
-## 🎯 Who Is CareerForge AI For?
+## Repository Structure
 
-**Students and fresh graduates**
+```text
+CareerForge-AI/
+├── client/
+│   └── src/
+│       ├── components/
+│       │   ├── dashboard/
+│       │   ├── layout/
+│       │   └── ui/
+│       ├── context/
+│       ├── pages/
+│       └── utils/
+├── server/
+│   └── src/
+│       ├── models/
+│       ├── routes/
+│       └── server.js
+└── README.md
+```
 
-Students preparing for internships, placements, technical interviews, and their first professional opportunities.
+## Local Setup
 
-**Aspiring software developers**
+### Prerequisites
 
-Developers who want to track coding practice, build technical portfolios, and organize their learning journey.
+- Node.js and npm
+- A MongoDB Atlas connection string (or a compatible MongoDB instance)
+- Git
 
-**Recruiters (future phase)**
+### 1. Clone the repository
 
-Recruiters looking to discover candidates through searchable, permission-based student profiles.
+```bash
+git clone https://github.com/Yuvraj-2316/CareerForge-AI.git
+cd CareerForge-AI
+```
 
----
+### 2. Install dependencies
 
-## 🚀 Development Roadmap
+In separate terminal sessions, install dependencies for both applications:
 
-### Phase 1 — Planning & Architecture
+```bash
+cd server
+npm install
+```
 
-- [x] Define the project idea and problem statement.
-- [x] Identify target users.
-- [x] Plan the initial features.
-- [x] Select the proposed technology stack.
-- [x] Draft MongoDB collections.
-- [ ] Finalize database schemas and relationships.
-- [ ] Design REST API endpoints.
-- [ ] Finalize application architecture.
+```bash
+cd client
+npm install
+```
 
-### Phase 2 — Core Full-Stack Development
+### 3. Configure environment variables
 
-- [ ] Initialize React and Express applications.
-- [ ] Configure MongoDB.
-- [ ] Implement secure authentication.
-- [ ] Develop student profiles.
-- [ ] Build the student dashboard.
-- [ ] Implement protected routes and authorization.
+Create `server/.env` with the values expected by your local backend configuration. For the current Express/MongoDB/JWT setup, these typically include:
 
-### Phase 3 — Career Management Modules
+```dotenv
+PORT=5001
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=replace_with_a_long_random_secret
+```
 
-- [ ] Build the DSA progress tracker.
-- [ ] Develop project management features.
-- [ ] Implement certification tracking.
-- [ ] Develop the resume builder.
-- [ ] Create analytics dashboards.
+**Check the environment variable names in your server configuration before starting.** Never commit `.env` files, database credentials, or JWT secrets.
 
-### Phase 4 — AI Integration
+The frontend currently uses the local API at `http://localhost:5001`; update its API configuration if you run the backend elsewhere.
 
-- [ ] Integrate the Gemini API.
-- [ ] Implement AI resume analysis.
-- [ ] Generate personalized learning roadmaps.
-- [ ] Develop AI-assisted mock interviews.
-- [ ] Implement career recommendations.
+### 4. Run the application
 
-### Phase 5 — Testing & Deployment
+Start the backend from `server/` using the start or development script defined in `server/package.json`:
 
-- [ ] Implement application and API tests.
-- [ ] Review authentication and data security.
-- [ ] Optimize responsive design.
-- [ ] Deploy the frontend and backend.
-- [ ] Publish the live application.
-- [ ] Document the completed MVP.
+```bash
+npm run dev
+```
 
-### Future Enhancements
+If your server package does not define a `dev` script, use its configured `start` script instead.
 
-- [ ] Recruiter dashboard.
-- [ ] Admin dashboard.
-- [ ] GitHub profile integration.
-- [ ] Advanced career analytics.
-- [ ] Weekly career progress reports.
+Start the frontend from `client/`:
 
----
+```bash
+npm run dev
+```
 
-## 🔐 Security & Development Principles
+Open the local URL printed by Vite (normally `http://localhost:5173`). Register or log in to access the protected dashboard.
 
-CareerForge AI will be developed with an emphasis on secure authentication, protected user data, maintainable code, and reliable APIs.
+## Roadmap
 
-Our development goals include:
+### Completed: Core foundation
 
-- Secure password hashing.
-- Role-based authorization.
-- API input validation.
-- Protected environment variables.
-- Secure resume storage.
-- Error handling and automated testing.
-- Responsive and accessible user interfaces.
+- [x] Initialize React and Express applications.
+- [x] Configure MongoDB and Mongoose.
+- [x] Implement registration, login, and protected routes.
+- [x] Build shared UI, navigation, and the student dashboard.
+- [x] Add authenticated project CRUD operations.
+- [x] Add personalized goals and project-based goal progress.
+- [x] Connect goal deadlines to Upcoming Tasks and the weekly calendar.
 
----
+### Next: DSA practice
 
-## 📌 Current Project Status
+- [ ] Create a topic-wise DSA question list with LeetCode links.
+- [ ] Save each student's solved questions in MongoDB.
+- [ ] Show actual solved totals, difficulty breakdown, and coding activity.
+- [ ] Connect solved-question counts to personalized DSA goals.
+- [ ] Evaluate authorized options for LeetCode progress synchronization.
 
-**🟡 In Development — Planning & Database Design**
+### Later: Career preparation and AI
 
-CareerForge AI is an ongoing personal full-stack development project.
+- [ ] Build resume upload, creation, and analysis workflows.
+- [ ] Add mock interview practice and tracking.
+- [ ] Add certification management and expanded student profiles.
+- [ ] Integrate AI-assisted career guidance and learning roadmaps.
+- [ ] Add automated tests and complete a security review.
+- [ ] Deploy and document a public MVP.
 
-Our initial milestone is to develop a functional student platform with authentication, profile management, and career progress tracking.
+### Future enhancements
 
-AI-powered features, recruiter tools, and advanced analytics will be introduced in subsequent development stages.
+- [ ] Permission-based recruiter features.
+- [ ] Administrative tools.
+- [ ] GitHub integration and advanced analytics.
 
-The README will be updated as features are implemented and deployed.
+## Security Notes
 
----
+- Passwords are hashed and authenticated endpoints require a JWT.
+- Project and goal records are scoped to the signed-in student.
+- Local secrets belong in ignored environment files, never in Git.
+- The application is under active development and has not undergone a production security audit.
 
-## 👨‍💻 Developer
+## Developer
 
-**Yuvraj Garg**
+**Yuvraj Garg**  
+B.E. Computer Science Engineering — Artificial Intelligence & Machine Learning  
+Batch 2024–2028
 
-B.E. Computer Science Engineering  
-Specialization: Artificial Intelligence & Machine Learning  
-Batch: 2024–2028
-
-[![GitHub](https://img.shields.io/badge/GitHub-Yuvraj--2316-181717?style=for-the-badge&logo=github)](https://github.com/Yuvraj-2316)
+[GitHub](https://github.com/Yuvraj-2316) · [CareerForge AI Repository](https://github.com/Yuvraj-2316/CareerForge-AI)
 
 ---
 
 <div align="center">
 
-### 🚀 CareerForge AI
-
-**Build Skills. Track Progress. Shape Your Future.**
-
-*From learning your first skill to preparing for your next career opportunity.*
-
-⭐ Star this repository to follow the development journey!
+**CareerForge AI — Build skills. Track progress. Shape your future.**
 
 </div>
